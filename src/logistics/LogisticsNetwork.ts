@@ -530,9 +530,10 @@ export class LogisticsNetwork {
 				return choices; // Return early you have sufficient free space or are empty
 			}
 			// Change in resources if transporter drops off resources at a buffer first
-			for (const buffer of this.buffers) {
+			for (const staleBuffer of this.buffers) {
+				const buffer = Game.getObjectById(staleBuffer.id) as BufferTarget
 				const dQ_buffer = Math.min(Math.abs(amount), transporter.carryCapacity,
-										   buffer.store.getCapacity() - _.sum(buffer.store));
+										   buffer.store.getCapacity() - buffer.store.getUsedCapacity());
 				const dt_buffer = newPos.getMultiRoomRangeTo(buffer.pos) * LogisticsNetwork.settings.rangeToPathHeuristic
 								  + (Pathing.distance(buffer.pos, request.target.pos) || Infinity) + ticksUntilFree;
 				choices.push({
