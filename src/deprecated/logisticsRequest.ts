@@ -90,8 +90,8 @@
 //
 // 	/* If being used as a drop-requestor, max amount of resources to drop at location */
 // 	get storeCapacity(): number {
-// 		if (this.memory.storeCapacity) {
-// 			return this.memory.storeCapacity;
+// 		if (this.memory.store.getCapacity()) {
+// 			return this.memory.store.getCapacity();
 // 		} else {
 // 			return 999;
 // 		}

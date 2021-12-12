@@ -22,7 +22,7 @@ import {Zerg} from '../zerg/Zerg';
 // }
 //
 // export function isStoreStructure(obj: RoomObject): obj is StoreStructure {
-// 	return (<StoreStructure>obj).store != undefined && (<StoreStructure>obj).storeCapacity != undefined;
+// 	return (<StoreStructure>obj).store != undefined && (<StoreStructure>obj).store.getCapacity() != undefined;
 // }
 
 export function isStructure(obj: RoomObject): obj is Structure {

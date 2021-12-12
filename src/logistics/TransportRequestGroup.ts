@@ -160,7 +160,7 @@ export class TransportRequestGroup {
 
 		// Legacy code from before the structure.store refactor
 		// if (isStoreStructure(target)) {
-		// 	return target.storeCapacity - _.sum(target.store);
+		// 	return target.store.getCapacity() - _.sum(target.store);
 		// } else if (isEnergyStructure(target) && resourceType == RESOURCE_ENERGY) {
 		// 	return target.energyCapacity - target.energy;
 		// } else {
